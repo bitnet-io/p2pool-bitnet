@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5774477604817329",
+          enable_page_level_ads: true
+     });
+</script>
+
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mining pool p2pool Litecoin LTC scrypt algo">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        
+    <title>setting up cpuminig on p2pool for radiocoin</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,100,100italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-sortable.css">
+
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-dateFormat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="js/bootstrap-sortable.js"></script>
+
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+
+    <script src="js/util.js"></script>
+    <script src="js/graph.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="grid.css" rel="stylesheet">
+<a href="http://radiopool.me:9555/static/" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>back to pool area</a>
+<br>
+<h2>setting up cpuminig on p2pool for radiocoin</h2>
+<br>
+<a href="http://radiopool.me/QR/" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>head to Polymorphic QR code demo </a>
+<br>
+
+<h2>p2pool setting up a gpu/cpu mining program</h2>
+<br>
+<h2>standard cpu mining</h2>
+<h4>docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://radiopool.me:9555 --userpass your-radiocoin-receiving-addr:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=your-radiocoin-address</h4>
+<br>
+<h2>GPU mining with "cgminer"</h2>
+<h4>cgminer --scrypt -I 13 -o stratum+tcp://radiopool.me:9555 --userpass your-radiocoin-receiving-addr:x --worksize 256 -g 1 --lookup-gap 2 --thread-concurrency 7200 --fix-protocol</h4>
+<br>
+<br>
+<h2>slightly optimized cgminer work settings                                                                                   &nbsp&nbsp&nbsp&nbsp    username:pass</h2>
+<h4>cgminer --scrypt -I 14 -o stratum+tcp://radiopool.me:9555 --userpass YOUR_WALLET_ADDRESS:x --worksize 32 -g 1 --thread-concurrency 30000 --fix-protocol</h4>
+</p>
+<br>
+<h4>with a gpu driver installed natively</h4>
+<a href="https://raw.githubusercontent.com/c4pt000/radiocoin/master/BUILD_SCRIPTS/LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>deploy a LINODE-GPU-CLUSTER-script-FEDORA-34</a>
+<br>
+<h4>to fix issues with cgminer "panicing the kernel on quit"</h4>
+<a href="https://github.com/c4pt000/GPU-mining-remove-REMOTE-panics" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>GPU-mining-remove-REMOTE-panics</a>
+<br>
+<h4> for debian and rhel releases</h4>
+<a href="https://github.com/c4pt000/cgminer/releases/tag/rpm%2Bdeb" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>CGMINER 3.7.2+scrypt DEB/RPM</a>
+
+

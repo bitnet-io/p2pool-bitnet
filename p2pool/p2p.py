@@ -26,7 +26,8 @@ def fragment(f, **kwargs):
 
 class Protocol(p2protocol.Protocol):
 #    VERSION = 3501
-    VERSION = 70015
+#    VERSION = 70015
+    VERSION = 80003
     
     max_remembered_txs_size = 25000000
     
