@@ -8,7 +8,7 @@ from p2pool.util import pack
 
 
 P2P_PREFIX = 'f9d9cdc3'.decode('hex')
-P2P_PORT = 8235
+P2P_PORT = 8334
 ADDRESS_VERSION = 68
 HUMAN_READABLE_PART = 'urx'
 RPC_PORT = 8234
