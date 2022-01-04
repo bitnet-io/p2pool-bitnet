@@ -18,7 +18,7 @@ RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
         ))
 
 SUBSIDY_FUNC=lambda height: 1*100000000 >> (height + 1)//23500
-POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('yescrypt_hash').getHash(data, 80))
+POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('yespowerurx').getHash(data, 80))
 BLOCK_PERIOD = 150 # s
 SYMBOL = 'URX'
 CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'uraniumx') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/uraniumx/') if platform.system() == 'Darwin' else os.path.expanduser('~/.uraniumx'), 'uraniumx.conf')
