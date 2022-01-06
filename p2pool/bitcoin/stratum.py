@@ -103,7 +103,6 @@ class StratumRPCMiningProvider(object):
         #asicboost: version_bits is the version mask that the miner used
         worker_name = worker_name.strip()
         if job_id not in self.handler_map:
-            print >>sys.stderr, '''Couldn't link returned work's job id with its handler. This should only happen if this process was recently restarted!'''
             #self.other.svc_client.rpc_reconnect().addErrback(lambda err: None)
             return False
         x, got_response = self.handler_map[job_id]

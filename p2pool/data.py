@@ -887,7 +887,7 @@ def update_min_protocol_version(counts, share):
 
 def get_pool_attempts_per_second(tracker, previous_share_hash, dist, min_work=False, integer=False):
     assert dist >= 2
-    near = tracker.items[previous_share_hash]
+    near = tracker.items[previous_share_hash]#
     far = tracker.items[tracker.get_nth_parent_hash(previous_share_hash, dist - 1)]
     attempts = tracker.get_delta(near.hash, far.hash).work if not min_work else tracker.get_delta(near.hash, far.hash).min_work
     time = near.timestamp - far.timestamp

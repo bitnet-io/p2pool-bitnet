@@ -43,16 +43,23 @@
 
     <!-- Custom styles for this template -->
     <link href="grid.css" rel="stylesheet">
+<br>
+<br>
 <a href="http://radiopool.me:9555/static/" style="" class="btn btn-default btn-lg btn-gh">
 <i class="fa fa-btn"></i>back to pool area</a>
 <br>
-<h2>setting up cpuminig on p2pool for radiocoin</h2>
 <br>
-<a href="http://radiopool.me/QR/" style="" class="btn btn-default btn-lg btn-gh">
-<i class="fa fa-btn"></i>head to Polymorphic QR code demo </a>
-<br>
-
 <h2>p2pool setting up a gpu/cpu mining program</h2>
+<br>
+<br>
+<h4>radiocoin discord</h4>
+<a href="https://discord.gg/ygaDGAJE" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>radiocoin discord</a>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <h2>standard cpu mining</h2>
 <h4>docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://radiopool.me:9555 --userpass your-radiocoin-receiving-addr:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=your-radiocoin-address</h4>
@@ -65,10 +72,6 @@
 <h4>cgminer --scrypt -I 14 -o stratum+tcp://radiopool.me:9555 --userpass YOUR_WALLET_ADDRESS:x --worksize 32 -g 1 --thread-concurrency 30000 --fix-protocol</h4>
 </p>
 <br>
-<h4>with a gpu driver installed natively</h4>
-<a href="https://raw.githubusercontent.com/c4pt000/radiocoin/master/BUILD_SCRIPTS/LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34" style="" class="btn btn-default btn-lg btn-gh">
-<i class="fa fa-btn"></i>deploy a LINODE-GPU-CLUSTER-script-FEDORA-34</a>
-<br>
 <h4>to fix issues with cgminer "panicing the kernel on quit"</h4>
 <a href="https://github.com/c4pt000/GPU-mining-remove-REMOTE-panics" style="" class="btn btn-default btn-lg btn-gh">
 <i class="fa fa-btn"></i>GPU-mining-remove-REMOTE-panics</a>
@@ -76,5 +79,41 @@
 <h4> for debian and rhel releases</h4>
 <a href="https://github.com/c4pt000/cgminer/releases/tag/rpm%2Bdeb" style="" class="btn btn-default btn-lg btn-gh">
 <i class="fa fa-btn"></i>CGMINER 3.7.2+scrypt DEB/RPM</a>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1> Fedora 34 based </h1>
+<br>
+<h2>remote cluster on a VPS</h4>
+<h4>a script I wrote to deploy a remote GPU cluster easily on LINODE with the gpu driver installed natively</h4>
+<a href="https://raw.githubusercontent.com/c4pt000/radiocoin/master/BUILD_SCRIPTS/LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>deploy a LINODE-GPU-CLUSTER-script-FEDORA-34</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>for use on a remote VPS with nvidia GPUS when 1 or more NVIDIA cards are installed</h2>
+<h2>it easily deploys nvidia drivers, cuda sdk, and required settings to run cgminer as a GPU miner remotely to connect to any pool</h2>
+<br>
+<h4>wget https://raw.githubusercontent.com/c4pt000/radiocoin/master/BUILD_SCRIPTS/LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34</h4>
+<br>
+<h4>chmod +x LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34</h4>
+<br>
+<h4>./LINODE-NO_CUSTOM_KERNEL_GPU-CLUSTER-script-FEDORA-34</h4>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="http://radiopool.me/QR/" style="" class="btn btn-default btn-lg btn-gh">
+<i class="fa fa-btn"></i>head to Polymorphic QR code demo </a>
+<br>

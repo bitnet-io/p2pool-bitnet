@@ -283,7 +283,8 @@ class RobustLoopingCall(object):
             try:
                 self.func(*self.args, **self.kwargs)
             except:
-                log.err()
+		()
+           #     log.err()
             yield sleep(period)
     
     def stop(self):

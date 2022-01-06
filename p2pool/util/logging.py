@@ -81,7 +81,7 @@ class AbortPipe(object):
             self.inner_file.write(data)
         except:
             sys.stdout = sys.__stdout__
-            log.DefaultObserver.stderr = sys.stderr = sys.__stderr__
+        #    log.DefaultObserver.stderr = sys.stderr = sys.__stderr__
             raise
     def flush(self):
         self.inner_file.flush()
