@@ -78,7 +78,9 @@ class BaseShare(object):
     VERSION = 0
     VOTING_VERSION = 0
     SUCCESSOR = None
-    MINIMUM_PROTOCOL_VERSION = 80003
+    MINIMUM_PROTOCOL_VERSION = 70030 #was 80003 here
+    MAX_BLOCK_WEIGHT = 4000000
+    MAX_NEW_TXS_SIZE = 50000
     
     small_block_header_type = pack.ComposedType([
         ('version', pack.VarIntType()),
@@ -190,8 +192,14 @@ class BaseShare(object):
         for tx_hash, fee in desired_other_transaction_hashes_and_fees:
             if known_txs is not None:
                 this_stripped_size = bitcoin_data.get_stripped_size(known_txs[tx_hash])
-                this_real_size     = bitcoin_data.get_size(known_txs[tx_hash])
-                this_weight        = this_real_size + 3*this_stripped_size
+#edit here
+            if new_transaction_size + this_size > cls.MAX_NEW_TXS_SIZE: # limit the size of new txns/share
+                        break
+                        new_transaction_size += this_size
+                        new_transaction_hashes.append(tx_hash)
+
+                        this_real_size     = bitcoin_data.get_size(known_txs[tx_hash])
+                        this_weight        = this_real_size + 3*this_stripped_size
             else: # we're just verifying someone else's share. We'll calculate sizes in should_punish_reason()
                 this_stripped_size = 0
                 this_real_size = 0
@@ -619,11 +627,18 @@ class BaseShare(object):
             if not hasattr(self, 'all_tx_size'):
                 self.all_txs_size = sum(bitcoin_data.get_size(tx) for tx in other_txs)
                 self.stripped_txs_size = sum(bitcoin_data.get_stripped_size(tx) for tx in other_txs)
-            if self.all_txs_size + 3 * self.stripped_txs_size + 4*80 + self.gentx_weight > tracker.net.BLOCK_MAX_WEIGHT:
-                return True, 'txs over block weight limit'
-            if self.stripped_txs_size + 80 + self.gentx_size > tracker.net.BLOCK_MAX_SIZE:
+          
+	   #  if all_txs_size + 3 * stripped_txs_size > self.MAX_BLOCK_WEIGHT:
+	    if self.all_txs_size + 3 * self.stripped_txs_size > self.MAX_BLOCK_WEIGHT:
                 return True, 'txs over block size limit'
-        
+
+	  #  if self.all_txs_size + 3 * self.stripped_txs_size + 4*80 + self.gentx_weight > tracker.net.BLOCK_MAX_WEIGHT:
+          #      return True, 'txs over block weight limit'
+          #  if self.stripped_txs_size + 80 + self.gentx_size > tracker.net.BLOCK_MAX_SIZE:
+          #      return True, 'txs over block size limit'
+            new_txs_size = sum(bitcoin_data.tx_type.packed_size(known_txs[tx_hash]) for tx_hash in self.share_info['new_transaction_hashes'])
+            if new_txs_size > self.MAX_NEW_TXS_SIZE:
+                return True, 'new txs over limit'
         return False, None
     
     def as_block(self, tracker, known_txs):
@@ -637,29 +652,33 @@ class PaddingBugfixShare(BaseShare):
     VOTING_VERSION = 35
     SUCCESSOR = None
     MINIMUM_PROTOCOL_VERSION = 3500
+    MAX_NEW_TXS_SIZE = 100000
 
 class SegwitMiningShare(BaseShare):
     VERSION = 34
     VOTING_VERSION = 34
     SUCCESSOR = PaddingBugfixShare
     MINIMUM_PROTOCOL_VERSION = 3300
+    MAX_NEW_TXS_SIZE = 100000
 
 class NewShare(BaseShare):
     VERSION = 33
     VOTING_VERSION = 33
     SUCCESSOR = PaddingBugfixShare
     MINIMUM_PROTOCOL_VERSION = 3300
+    MAX_NEW_TXS_SIZE = 100000
 
 class PreSegwitShare(BaseShare):
     VERSION = 32
     VOTING_VERSION = 32
     SUCCESSOR = PaddingBugfixShare
+    MAX_NEW_TXS_SIZE = 100000
 
 class Share(BaseShare):
     VERSION = 17
     VOTING_VERSION = 17
     SUCCESSOR = PaddingBugfixShare
-
+    MAX_NEW_TXS_SIZE = 100000
 
 share_versions = {s.VERSION:s for s in [PaddingBugfixShare, SegwitMiningShare, NewShare, PreSegwitShare, Share]}
 
