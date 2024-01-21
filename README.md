@@ -28,5 +28,7 @@ python2 run_p2pool.py --allow-obsolete-bitcoind --net bitnet -a YOUR-RECEIVING_A
  ```
 
 
-# cpuminer
+# cpuminer example
+```
 cpuminer-avx2 -a aurum --url stratum+tcp://127.0.0.1:80 --userpass your-testnet-receving-address:x -t 20 
+```
