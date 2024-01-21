@@ -15,16 +15,16 @@ python2 setup.py install
 
 
 place bitnet.conf into /root/.bitnet/
-bitnetd -testnet
-bitnet-cli -testnet createwallet "default"
-bitnet-cli -testnet unloadwallet "default"
-bitnet-cli -testnet loadwallet "default" true
-bitnet-cli -testnet getnewaddress "testing" "legacy"
+bitnetd 
+bitnet-cli createwallet "default"
+bitnet-cli unloadwallet "default"
+bitnet-cli loadwallet "default" true
+bitnet-cli getnewaddress "testing" "legacy"
 
 
-adjust run-testnet.sh or run the command below
+adjust run-p2pool.sh or run the command below
 
-python2 run_p2pool.py --allow-obsolete-bitcoind --testnet --net bitnet-a YOUR-RECEIVING_ADDR -f 1 --give-author 0 --worker-port 80 --bitcoind-p2p-port 9999 --bitcoind-rpc-port 18332 testuser testpassword
+python2 run_p2pool.py --allow-obsolete-bitcoind --net bitnet -a YOUR-RECEIVING_ADDR -f 1 --give-author 0 --worker-port 80 --bitcoind-p2p-port 9999 --bitcoind-rpc-port 18332 testuser testpassword
  ```
 
 
